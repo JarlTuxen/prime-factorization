@@ -6,6 +6,7 @@ import java.util.List;
 public class Prime {
     // iterative
     public void primeIterative(int number){
+        System.out.println("Iterativt");
         System.out.print(number + ": ");
         for(int i = 2; i< number; i++) {
             while(number%i == 0) {
@@ -39,7 +40,7 @@ public class Prime {
 
     // recursive
     public void primeDivisorsRecursive(int number){
-
+        System.out.println("Rekursivt");
         ArrayList<Integer> list = new ArrayList<>();
         System.out.print(number+":");
         primesRecursive(number, 2, list);
