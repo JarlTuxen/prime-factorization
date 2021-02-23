@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Prime {
     // iterative
-    public void prime(int number){
+    public void primeIterative(int number){
         System.out.print(number + ": ");
         for(int i = 2; i< number; i++) {
             while(number%i == 0) {
@@ -19,7 +19,7 @@ public class Prime {
         System.out.println();
     }
 
-    public void primes(int n, int divisor, List<Integer> list){
+    public void primesRecursive(int n, int divisor, List<Integer> list){
         // 1 or 2?
         if (n <= 2) {
             if (n == 2) list.add(2);
@@ -27,22 +27,22 @@ public class Prime {
         // Non-trivial divisor
         else if (n % divisor == 0) {
             list.add(divisor);
-            primes(n/divisor, divisor, list);
+            primesRecursive(n/divisor, divisor, list);
         }
         // Check for next divisor
         else if (divisor < n/2)
-            primes(n, divisor +1, list);
+            primesRecursive(n, divisor +1, list);
             // Last divisor
         else //if (n>1)
             list.add(n);
     }
 
     // recursive
-    public void primeDivisors(int number){
+    public void primeDivisorsRecursive(int number){
 
         ArrayList<Integer> list = new ArrayList<>();
         System.out.print(number+":");
-        primes(number, 2, list);
+        primesRecursive(number, 2, list);
         System.out.print(list);
         System.out.println((list.size()==1)?" prime":" not prime");
 
